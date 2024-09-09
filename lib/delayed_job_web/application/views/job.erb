@@ -22,7 +22,13 @@
     <% end %>
     <dt>Handler</dt>
     <dd>
-    <pre><%=h job.payload_object %></pre>
+      <div class="backtrace">
+        <pre><%=h job.payload_object.inspect[0..100] + '...' %></pre>
+      </div>
+      <a class="backtrace" href="#">Toggle Payload</a>
+      <div class="backtrace full hide">
+        <pre><%=h job.payload_object.inspect %></pre>
+      </div>
     </dd>
     <% if job.last_error %>
       <dt>Last Error</dt>
